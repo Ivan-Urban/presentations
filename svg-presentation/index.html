@@ -1,0 +1,558 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/style.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+          <h2>Scalable Vector Graphics</h2>
+          SVG
+
+          <aside class="notes">
+            Hello, my name is Ivan and I will tell you about Scalable Vector Graphics or SVG.
+          </aside>
+        </section>
+				<section>
+          <section>
+            <h3>What is SVG?</h3>
+
+            <aside class="notes">
+              So, what is SVG?
+            </aside>
+          </section>
+          <section>
+            Scalable Vector Graphics (SVG) is an XML-based markup language for describing two-dimensional vector graphics.
+            
+            <aside class="notes">
+              In other words, it is a text file, which is an open web standard for describing two-dimensional vector images.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Advantages and disadvantages</h3>
+
+            <aside class="notes">
+              Like everything, SVG has advantages and disadvantages.
+            </aside>
+          </section>
+          <section>
+            <h4>Advantages</h4>
+            <ul>
+              <li class="fragment fade-up">text format</li>
+              <li class="fragment fade-up">scalability</li>
+              <li class="fragment fade-up">high print quality</li>
+              <li class="fragment fade-up">small file size</li>
+              <li class="fragment fade-up">animation</li>
+            </ul>
+
+            <aside class="notes">
+              SVG images can be created and edited with any text editor
+              SVG graphics don’t lose any quality if they are zoomed or resized
+              SVG images can be printed with high quality at any resolution
+              SVG images can be animated
+            </aside>
+          </section>
+          <section>
+            <h4>Disadvantages</h4>
+            <ul>
+              <li class="fragment fade-up">cannot support as much detail</li>
+              <li class="fragment fade-up">doesn't work on legacy browsers</li>
+            </ul>
+
+            <aside class="notes">
+              SVGs are based on points and paths instead of pixels, they can't display as much detail as standard image formats
+              Legacy browsers, such as IE8 and lower, don't support SVG
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>How to add SVG to HTML page?</h3>
+
+            <aside class="notes">
+              How to add SVG to an HTML page? 
+              There are several ways.
+            </aside>
+          </section>
+          <section>
+            Tag &lt;img&gt;
+            <pre><code>
+    <img src="search.svg" width="200" height="100">
+              </code></pre>
+
+              <aside class="notes">
+                SVG can be added to a page like any other image: via the img tag or as a CSS background.
+              </aside>
+          </section>
+          <section>
+            CSS Background Image
+            <pre><code>
+    {
+      width: 200px;
+      height: 100px;
+      background-image: url('search.svg');
+    }
+              </code></pre>
+
+              <aside class="notes">
+                In these cases scripts, animations and other interactivity will not work
+              </aside>
+          </section>
+          <section>
+            Tag &lt;object&gt;
+            <pre><code>
+    <object type="image/svg+xml" data="search.svg" width="200" height="100">
+      <img src="search.png" width="200" height="100" alt="image format png" />
+    </object>
+              </code></pre>
+
+              <aside class="notes">
+                You can also add SVG using the object tag.
+                In this case, you can include stylesheets or scripts.
+              </aside>
+          </section>
+          <section>
+            Inline SVG
+            <pre><code>
+    <svg fill="#1A1A1A" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+      <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625
+      35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.46093828.085938
+      38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875
+      29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"/>
+    </svg>
+              </code></pre>
+
+              <aside class="notes">
+                Well, since SVG is a text format, you can add it inline to the HTML code.
+                In this way, you can also change styles, add scripts, animations, etc.
+              </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Basic figures</h3>
+
+            <aside class="notes">
+              There are several basic shapes used for most SVG drawing.
+            </aside>
+          </section>
+          <section>
+            Rectangle
+            <pre><code>
+    <svg width="450" height="150">
+      <rect x="10" y="10" width="200" height="100" fill="#562fe5"/>
+      <rect x="240" y="10" rx="10" ry="20" width="200" height="100" stroke="#ff0000" stroke-width="5"/>
+    </svg>
+              </code></pre>
+              <div class="svg-wrapper">
+                <svg width="450" height="150">
+                  <rect x="10" y="10" width="200" height="100" fill="#562fe5"/>
+                  <rect x="240" y="10" rx="10" ry="20" width="200" height="100" stroke="#ff0000" stroke-width="5"/>
+                </svg>
+              </div>
+
+              <aside class="notes">
+                A rectangle can be drawn using the rect tag.
+                Rectangles can also have rounded corners.
+                If no radii are specified, their default values are zero.
+                If one of them is specified, the default value of the other radius is equal to the set one.
+                The fill attribute sets the color inside the figure.
+                Stroke sets the color of the line drawn around the figure, and stroke-width sets the width of that line.
+              </aside>
+          </section>
+          <section>
+            Circle
+            <pre><code>
+    <svg width="150" height="150">
+      <circle cx="75" cy="75" r="70" stroke="#ff00ff" stroke-width="10"/>
+    </svg>
+              </code></pre>
+              <div class="svg-wrapper">
+                <svg width="150" height="150">
+                  <circle cx="75" cy="75" r="70" stroke="#ff00ff" stroke-width="10"/>
+                </svg>
+              </div>
+
+              <aside class="notes">
+                The circle element draws a circle.
+              </aside>
+          </section>
+          <section>
+            Ellipse
+            <pre><code>
+    <svg width="150" height="150">
+      <ellipse cx="75" cy="75" rx="70" ry="40" fill="#5ac345"/>
+    </svg>
+              </code></pre>
+              <div class="svg-wrapper">
+                <svg width="150" height="150">
+                  <ellipse cx="75" cy="75" rx="70" ry="40" fill="#5ac345"/>
+                </svg>
+              </div>
+
+              <aside class="notes">
+                Ellipse is the most common form of the circle element.
+              </aside>
+          </section>
+          <section>
+            Line
+            <pre><code>
+    <svg width="150" height="150">
+      <line x1="10" x2="150" y1="10" y2="150" stroke="black" stroke-width="5"/>
+    </svg>
+              </code></pre>
+              <div class="svg-wrapper">
+                <svg width="150" height="150">
+                  <line x1="10" x2="150" y1="10" y2="150" stroke="black" stroke-width="5"/>
+                </svg>
+              </div>
+
+              <aside class="notes">
+                The line element takes the positions of two points as parameters and draws a straight line between them.
+                Attribute stroke sets the color of the line. 
+              </aside>
+          </section>
+          <section>
+            Polyline
+            <pre><code>
+    <svg width="150" height="150">
+      <polyline points="10, 10 100, 10 50, 50 70, 100 20, 110"/>
+      <polyline points="210, 10 300, 10 250, 50 270, 100 220, 110" fill="none" stroke="black"/>
+    </svg>
+              </code></pre>
+              <div class="svg-wrapper">
+                <svg width="300" height="150">
+                  <polyline points="10, 10 100, 10 50, 50 70, 100 20, 110"/>
+                  <polyline points="210, 10 300, 10 250, 50 270, 100 220, 110" fill="none" stroke="black"/>
+                </svg>
+              </div>
+
+              <aside class="notes">
+                A polyline is a group of connected straight lines.
+                All the points are included in one attribute: points.
+                Each point contains an x and y coordinate, separated by a comma.
+                Different points are separated by spaces.
+                If fill="none" is not set, the lines will join into a filled shape.
+              </aside>
+          </section>
+          <section>
+            Polygon
+            <pre><code>
+    <svg width="150" height="150">
+      <polygon points="20, 75 75, 20 130, 20 185, 75 130, 130 75, 130" fill="none" stroke="black"/>
+    </svg>
+              </code></pre>
+              <div class="svg-wrapper">
+                <svg width="200" height="150">
+                  <polygon points="20, 75 75, 20 130, 20 185, 75 130, 130 75, 130" fill="none" stroke="black"/>
+                </svg>
+              </div>
+
+              <aside class="notes">
+                A polygon is similar to a polyline, in that it is composed of straight lines connecting a list of points.
+                However, for polygons the path automatically connects the last point with the first.
+              </aside>
+          </section>
+        </section>
+        <section>
+          <h4>Tag &lt;g&gt;</h4>
+          <pre><code>
+    <svg width="250" height="210">
+      <g fill="#aabbcc">
+        <ellipse cx="55" cy="60" rx="45" ry="37" transform="rotate(-45, 55, 55)"/>
+        <ellipse cx="190" cy="60" rx="45" ry="37" transform="rotate(45, 190, 55)"/>
+        <circle cx="122" cy="125" r="67"/>
+      </g>
+    </svg>
+              </code></pre>
+          <div class="svg-wrapper">
+            <svg width="250" height="210">
+              <g fill="#aabbcc">
+                <ellipse cx="55" cy="60" rx="45" ry="37" transform="rotate(-45, 55, 55)"/>
+                <ellipse cx="190" cy="60" rx="45" ry="37" transform="rotate(45, 190, 55)"/>
+                <circle cx="122" cy="125" r="67"/>
+              </g>
+            </svg>
+          </div>
+
+          <aside class="notes">
+            Tag g is used to group other SVG elements.
+            Any transformations applied to g elements are inherited by its children.
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h4>Tag &lt;path&gt;</h4>
+
+            <aside class="notes">
+              The path is the most powerful element of the basic SVG forms.
+              It can be used to create all kinds of shapes and Bézier curves.
+              The shape of a path element is defined by one parameter: d.
+            </aside>
+          </section>
+          <section>
+            <pre><code>
+    <svg width="400" height="150">
+      <path d="M 20, 20 L 150, 20 L 150, 100" fill="none" stroke="#0000ff" stroke-width="5"/>
+      <path d="M 220, 20 L 350, 20 L 350, 100 z" fill="none" stroke="#0000ff" stroke-width="5"/>
+    </svg>
+            </code></pre>
+            <div class="svg-wrapper">
+              <svg width="400" height="150">
+                <path d="M 20, 20 L 150, 20 L 150, 100" fill="none" stroke="#0000ff" stroke-width="5"/>
+                <path d="M 220, 20 L 350, 20 L 350, 100 z" fill="none" stroke="#0000ff" stroke-width="5"/>
+              </svg>
+            </div>
+
+            <aside class="notes">
+              The d attribute contains a series of commands and parameters used by those commands.
+              Each of the commands is denoted by a specific letter.
+              The M command 
+              The L command 
+              Command Z
+            </aside>
+          </section>
+          <section>
+            <pre><code>
+    <svg width="200" height="150">
+      <path d="M 20, 20 H 160, 50" stroke="#0000ff" stroke-width="5"/>
+    </svg>
+            </code></pre>
+            <div class="svg-wrapper">
+              <svg width="200" height="150">
+                <path d="M 20, 20 H 160, 50" stroke="#0000ff" stroke-width="5"/>
+              </svg>
+            </div>
+
+            <aside class="notes">
+              Command H draws a horizontal line.
+            </aside>
+          </section>
+          <section>
+            <pre><code>
+    <svg width="200" height="150">
+      <path d="M 20, 20 V 160, 50" stroke="#0000ff" stroke-width="5"/>
+    </svg>
+            </code></pre>
+            <div class="svg-wrapper">
+              <svg width="200" height="150">
+                <path d="M 20, 20 V 160, 50" stroke="#0000ff" stroke-width="5"/>
+              </svg>
+            </div>
+
+            <aside class="notes">
+              Command V draws a vertical line.
+            </aside>
+          </section>
+          <section>
+            <pre><code data-line-numbers="3-7">
+    <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="150px" height="150px">
+      <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508
+      23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031
+      25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003
+      3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21
+      5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/>
+    </svg>
+                      </code></pre>
+          <div class="svg-wrapper">
+            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="150px" height="150px">
+              <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508
+              23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031
+              25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003
+              3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21
+              5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/>
+            </svg>
+          </div>
+
+            <aside class="notes">
+              Bézier curves can be drawn with the C and Q commands.
+              The A command
+              All commands (except Z) exist in two versions: the uppercase command indicates the absolute coordinates
+              on the page, and the lowercase command indicates the relative coordinates (relative to the previous point)
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h4>Sprites</h4>
+
+            <aside class="notes">
+              And finally I will tell you about sprites.
+            </aside>
+          </section>
+          <section>
+            <pre><code>
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+     width="1280.000000pt" height="1280.000000pt" viewBox="0 0 1280.000000 1280.000000"
+     preserveAspectRatio="xMidYMid meet">
+      <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+      fill="#000000" stroke="none">
+        <path d="M8125 12180 c-55 -13 -100 -42 -171 -115 -98 -99 -199 -256 -310
+        -482 -116 -235 -140 -261 -331 -354 -169 -83 -253 -141 -354 -246 -211 -219
+        -368 -536 -444 -898 -20 -97 -31 -341 -18 -412 11 -59 8 -67 -85 -205 -153
+        -227 -385 -458 -614 -610 -188 -127 -363 -204 -594 -263 -280 -72 -461 -182
+        -695 -422 -192 -197 -396 -480 -589 -818 -101 -178 -366 -707 -400 -799 -138
+        -382 -167 -1104 -79 -1996 23 -233 62 -519 86 -630 22 -98 21 -305 -1 -469
+        -16 -120 -19 -129 -91 -275 -215 -434 -263 -855 -141 -1219 160 -477 637 -853
+        1285 -1017 271 -68 500 -94 826 -93 360 0 651 36 1013 123 430 104 856 271
+        946 371 42 46 45 70 11 97 -46 36 -118 47 -315 47 -204 0 -298 -10 -595 -60
+        -319 -54 -392 -60 -740 -60 -337 0 -454 8 -701 51 -678 115 -1096 385 -1180
+        760 -23 106 -15 256 21 379 14 49 28 91 30 93 2 2 57 -3 122 -12 224 -30 360
+        -37 928 -46 314 -5 721 -14 905 -21 355 -12 891 -7 1095 11 261 23 417 63 447
+        115 54 94 60 240 13 320 -69 119 -240 180 -580 208 l-150 12 47 27 c132 78
+        294 343 314 513 4 31 10 52 15 48 4 -4 44 -91 89 -192 106 -242 205 -436 278
+        -544 127 -191 275 -317 437 -373 73 -26 92 -28 215 -28 105 1 152 5 210 21
+        182 51 247 93 272 174 10 35 9 51 -5 103 -10 33 -19 66 -20 73 -1 6 23 24 53
+        40 69 37 107 89 122 170 13 72 2 112 -41 142 -38 27 -79 38 -241 66 -153 27
+        -221 53 -252 95 -12 17 -21 58 -28 125 -16 147 -23 1373 -12 1790 10 332 12
+        368 35 460 70 279 202 531 443 851 169 225 220 317 278 501 69 221 91 423 83
+        773 -6 278 -21 427 -87 843 -51 329 -55 363 -40 416 15 58 98 140 205 206 263
+        160 353 231 429 339 117 165 178 388 137 508 -17 52 -67 92 -148 118 -170 56
+        -285 146 -394 310 -115 173 -179 212 -478 294 -177 49 -219 67 -226 99 -3 12
+        -9 144 -15 292 -5 149 -14 308 -20 355 -31 245 -96 346 -205 320z"/>
+      </g>
+    </svg>
+            </code></pre>
+
+            <aside class="notes">
+              So, there is an SVG image.
+            </aside>
+          </section>
+          <section>
+            <pre><code>
+    <svg display="none">          
+      <symbol version="1.0" id="svg-image" xmlns="http://www.w3.org/2000/svg"
+       width="1280.000000pt" height="1280.000000pt" viewBox="0 0 1280.000000 1280.000000"
+       preserveAspectRatio="xMidYMid meet">
+        <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+        fill="#000000" stroke="none">
+          <path d="M8125 12180 c-55 -13 -100 -42 -171 -115 -98 -99 -199 -256 -310
+          -482 -116 -235 -140 -261 -331 -354 -169 -83 -253 -141 -354 -246 -211 -219
+          -368 -536 -444 -898 -20 -97 -31 -341 -18 -412 11 -59 8 -67 -85 -205 -153
+          -227 -385 -458 -614 -610 -188 -127 -363 -204 -594 -263 -280 -72 -461 -182
+          -695 -422 -192 -197 -396 -480 -589 -818 -101 -178 -366 -707 -400 -799 -138
+          -382 -167 -1104 -79 -1996 23 -233 62 -519 86 -630 22 -98 21 -305 -1 -469
+          -16 -120 -19 -129 -91 -275 -215 -434 -263 -855 -141 -1219 160 -477 637 -853
+          1285 -1017 271 -68 500 -94 826 -93 360 0 651 36 1013 123 430 104 856 271
+          946 371 42 46 45 70 11 97 -46 36 -118 47 -315 47 -204 0 -298 -10 -595 -60
+          -319 -54 -392 -60 -740 -60 -337 0 -454 8 -701 51 -678 115 -1096 385 -1180
+          760 -23 106 -15 256 21 379 14 49 28 91 30 93 2 2 57 -3 122 -12 224 -30 360
+          -37 928 -46 314 -5 721 -14 905 -21 355 -12 891 -7 1095 11 261 23 417 63 447
+          115 54 94 60 240 13 320 -69 119 -240 180 -580 208 l-150 12 47 27 c132 78
+          294 343 314 513 4 31 10 52 15 48 4 -4 44 -91 89 -192 106 -242 205 -436 278
+          -544 127 -191 275 -317 437 -373 73 -26 92 -28 215 -28 105 1 152 5 210 21
+          182 51 247 93 272 174 10 35 9 51 -5 103 -10 33 -19 66 -20 73 -1 6 23 24 53
+          40 69 37 107 89 122 170 13 72 2 112 -41 142 -38 27 -79 38 -241 66 -153 27
+          -221 53 -252 95 -12 17 -21 58 -28 125 -16 147 -23 1373 -12 1790 10 332 12
+          368 35 460 70 279 202 531 443 851 169 225 220 317 278 501 69 221 91 423 83
+          773 -6 278 -21 427 -87 843 -51 329 -55 363 -40 416 15 58 98 140 205 206 263
+          160 353 231 429 339 117 165 178 388 137 508 -17 52 -67 92 -148 118 -170 56
+          -285 146 -394 310 -115 173 -179 212 -478 294 -177 49 -219 67 -226 99 -3 12
+          -9 144 -15 292 -5 149 -14 308 -20 355 -31 245 -96 346 -205 320z"/>
+        </g>
+      </symbol>
+    </svg>
+            </code></pre>
+            <pre><code>
+    <svg>
+      <use xlink:href="#svg-image"></use>
+    </svg>
+            </code></pre>
+
+            <aside class="notes">
+              To connect SVG via sprite you need inside the tag svg create tag symbol with all the parameters
+              from the tag svg of the picture itself and add an attribute id.
+              create the svg tag with the use tag inside and set an xlink:href attribute with the id
+              of the SVG
+            </aside>
+          </section>
+          <section>
+            image.svg
+            <pre><code class="mini-code">
+    <svg>          
+      <symbol version="1.0" id="svg-image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+       width="1280.000000pt" height="1280.000000pt" viewBox="0 0 1280.000000 1280.000000"
+       preserveAspectRatio="xMidYMid meet">
+        <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+        fill="#000000" stroke="none">
+          <path d="M8125 12180 c-55 -13 -100 -42 -171 -115 -98 -99 -199 -256 -310
+          -482 -116 -235 -140 -261 -331 -354 -169 -83 -253 -141 -354 -246 -211 -219
+          -368 -536 -444 -898 -20 -97 -31 -341 -18 -412 11 -59 8 -67 -85 -205 -153
+          -227 -385 -458 -614 -610 -188 -127 -363 -204 -594 -263 -280 -72 -461 -182
+          -695 -422 -192 -197 -396 -480 -589 -818 -101 -178 -366 -707 -400 -799 -138
+          -382 -167 -1104 -79 -1996 23 -233 62 -519 86 -630 22 -98 21 -305 -1 -469
+          -16 -120 -19 -129 -91 -275 -215 -434 -263 -855 -141 -1219 160 -477 637 -853
+          1285 -1017 271 -68 500 -94 826 -93 360 0 651 36 1013 123 430 104 856 271
+          946 371 42 46 45 70 11 97 -46 36 -118 47 -315 47 -204 0 -298 -10 -595 -60
+          -319 -54 -392 -60 -740 -60 -337 0 -454 8 -701 51 -678 115 -1096 385 -1180
+          760 -23 106 -15 256 21 379 14 49 28 91 30 93 2 2 57 -3 122 -12 224 -30 360
+          -37 928 -46 314 -5 721 -14 905 -21 355 -12 891 -7 1095 11 261 23 417 63 447
+          115 54 94 60 240 13 320 -69 119 -240 180 -580 208 l-150 12 47 27 c132 78
+          294 343 314 513 4 31 10 52 15 48 4 -4 44 -91 89 -192 106 -242 205 -436 278
+          -544 127 -191 275 -317 437 -373 73 -26 92 -28 215 -28 105 1 152 5 210 21
+          182 51 247 93 272 174 10 35 9 51 -5 103 -10 33 -19 66 -20 73 -1 6 23 24 53
+          40 69 37 107 89 122 170 13 72 2 112 -41 142 -38 27 -79 38 -241 66 -153 27
+          -221 53 -252 95 -12 17 -21 58 -28 125 -16 147 -23 1373 -12 1790 10 332 12
+          368 35 460 70 279 202 531 443 851 169 225 220 317 278 501 69 221 91 423 83
+          773 -6 278 -21 427 -87 843 -51 329 -55 363 -40 416 15 58 98 140 205 206 263
+          160 353 231 429 339 117 165 178 388 137 508 -17 52 -67 92 -148 118 -170 56
+          -285 146 -394 310 -115 173 -179 212 -478 294 -177 49 -219 67 -226 99 -3 12
+          -9 144 -15 292 -5 149 -14 308 -20 355 -31 245 -96 346 -205 320z"/>
+        </g>
+      </symbol>
+    </svg>
+            </code></pre>
+            index.html
+            <pre><code>
+    <svg>
+      <use xlink:href="image.svg#svg-image"></use>
+    </svg>
+            </code></pre>
+
+            <aside class="notes">
+              To include an SVG sprite from another file you need to add these two attributes
+              to include SVG and xlink support and add the filename to the xlink:href attribute of the use tag.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <h4>Thanks</h4>
+
+          <aside class="notes">
+            Thanks
+          </aside>
+        </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
